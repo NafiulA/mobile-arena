@@ -19,13 +19,36 @@ const getPhones = (length) => {
 
 const displayData = (phones, resultsNum) => {
 
-    const resultsContainer = document.getElementById("search-results");
     const resultText = document.getElementById("result-text");
 
     const rowDiv = document.getElementById("row-div");
-    resultsContainer.textContent = "";
+
+    rowDiv.textContent = ""
 
     if (resultsNum == 0) {
-
+        resultText.innerHTML = `<span>${resultsNum} results found.</span><br><span>Please try again with another keyword</span>`;
     }
+    else {
+
+
+        phones.forEach(phone => {
+            console.log(phone);
+            resultText.innerHTML = `<span>${resultsNum} results found.</span>`
+            const cardsCol = document.createElement("div");
+            cardsCol.classList.add("col-lg-4", "col-md-6", "col-sm-12");
+            cardsCol.innerHTML = `
+            <div class="card">
+                        <img src="${phone.image}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">${phone.phone_name}</h5>
+                            <p class="card-text">${phone.brand}</p>
+                            <a href="#" onclick="displayDetails(${phone.slug})" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+            `;
+            rowDiv.appendChild(cardsCol);
+        });
+        document.getElementById("show-more-btn").classList.remove("d-none");
+    }
+
 }
