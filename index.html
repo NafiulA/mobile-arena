@@ -27,11 +27,10 @@
                     id="search-btn">Search</button>
             </div>
             <!-- preloader section -->
-            <div class="container d-flex justify-content-center">
+            <div id="loading-sec" class="container d-flex justify-content-center d-none">
                 <div class="text-center">
-                    <img id="loading-img" class="w-50 d-none" src="./images/loading.gif" alt="">
+                    <img id="loading-img" class="w-50" src="./images/loading.gif" alt="">
                 </div>
-
             </div>
         </div>
     </header>
@@ -45,7 +44,7 @@
         <!-- search result cards -->
         <div id="search-results" class="container mb-3">
             <h4 id="result-text" class="text-center py-3"></h4>
-            <div id="row-div" class="row g-5">
+            <div id="row-div" class="row g-5 justify-content-center">
             </div>
         </div>
 

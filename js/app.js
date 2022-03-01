@@ -1,4 +1,5 @@
 const getPhones = (length) => {
+
     const inputField = document.getElementById("input-value");
     const inputValue = inputField.value;
     const inputValueLowerCase = inputValue.toLowerCase();
@@ -31,16 +32,19 @@ const displayData = (phones, resultsNum) => {
     if (resultsNum == 0) {
         resultText.innerHTML = `<span>${resultsNum} results found.</span><br><span>Please try again with another keyword</span>`;
         document.getElementById("show-more-btn").classList.add("d-none");
+        document.getElementById("loading-sec").classList.add("d-none");
     }
     else {
         phones.forEach(phone => {
             console.log(phone);
             resultText.innerHTML = `<span>${resultsNum} results found.</span>`
             const cardsCol = document.createElement("div");
-            cardsCol.classList.add("col-lg-4", "col-md-6", "col-sm-12");
+            cardsCol.classList.add("col-lg-4", "col-md-6", "col-sm-12", "justify-content-center");
             cardsCol.innerHTML = `
             <div class="card">
-                        <img src="${phone.image}" class="card-img-top p-2" alt="">
+            <div class= "text-center">
+                        <img src="${phone.image}" class="w-75 p-2" alt="">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">${phone.phone_name}</h5>
                             <p class="card-text">${phone.brand}</p>
@@ -50,7 +54,12 @@ const displayData = (phones, resultsNum) => {
             `;
             rowDiv.appendChild(cardsCol);
         });
-        document.getElementById("show-more-btn").classList.toggle("d-none");
+        if (phones.length == 20) {
+            document.getElementById("show-more-btn").classList.remove("d-none");
+        }
+        else {
+            document.getElementById("show-more-btn").classList.add("d-none");
+        }
     }
 }
 
@@ -65,23 +74,30 @@ const displayDetails = data => {
     const detailsArea = document.getElementById("details-area");
     detailsArea.textContent = "";
     const rowDiv = document.createElement("div");
-    rowDiv.classList.add("row", "g-4", "justify-content-center", "align-item-center");
+    rowDiv.classList.add("row", "g-4", "justify-content-center", "border", "border-danger", "border-3", "rounded-3");
     rowDiv.innerHTML = `
-    <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                     <img class="w-75" src="${data.image}" alt="">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <h3>Details</h3>
-                    <p>Chipset: ${data.mainFeatures.chipSet}</p>
-                    <p>Display: ${data.mainFeatures.displaySize}</p>
-                    <p>Memory: ${data.mainFeatures.memory}</p>
-                    <p>Storage: ${data.mainFeatures.storage}</p>
-                    <p>Sensors: ${data.mainFeatures.sensors.join(", ")}</p>
-                    <p>Others:
-                    ${data.others ? Object.values(data.others).join(", ") : "N/A"}</p>
+                    <h5>Details</h5>
+                    <h3>${data.name}</h3>
+                    <p>${data.brand}</p>
+                    <p><span class="fw-bold">Chipset:</span> ${data.mainFeatures.chipSet}</p>
+                    <p><span class="fw-bold">Display:</span> ${data.mainFeatures.displaySize}</p>
+                    <p><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
+                    <p><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
+                    <p><span class="fw-bold">Sensors:</span> ${data.mainFeatures.sensors.join(", ")}</p>
+                    <p><span class="fw-bold">Others:</span>
+                    ${data.others ? `<br><span>WLAN: ${data.others.WLAN}</span><br>
+                    <span>Bluetooth: ${data.others.Bluetooth}</span><br>
+                    <span>GPS: ${data.others.GPS}</span><br>
+                    <span>NFC: ${data.others.NFC}</span><br>
+                    <span>Radio: ${data.others.Radio}</span><br>
+                    <span>USB: ${data.others.USB}</span>` : "N/A"}</p>
                     <p class="fw-light fst-italic">Release Date: ${data.releaseDate ? data.releaseDate : "No release date found"}</p>
                 </div>
-    `
+    `;
     detailsArea.appendChild(rowDiv);
 
 }
