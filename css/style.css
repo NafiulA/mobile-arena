@@ -1,0 +1,10 @@
+#input-area{
+    width: 75%;
+}
+
+@media only screen and (max-width:576px){
+
+    #input-area{
+    width: 100%;
+    }
+}

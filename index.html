@@ -12,7 +12,106 @@
 </head>
 
 <body>
+    <!-- header section -->
+    <header>
+        <div class="container">
+            <h1 class="py-4 text-center fw-bold"><span class="text-danger">Mobile</span> Arena</h1>
+        </div>
 
+        <!-- search box -->
+        <div class="container">
+            <div id="input-area" class="input-group mb-3 mx-auto">
+                <input id="input-value" type="text" class="form-control fs-5"
+                    placeholder="Enter Mobile Brand or Model Name">
+                <button class="btn btn-danger text-white fs-5" type="button" onclick="getSpecificIP()"
+                    id="search-btn">Search</button>
+            </div>
+            <!-- preloader section -->
+            <div class="container d-flex justify-content-center">
+                <div class="text-center">
+                    <img id="loading-img" class="w-50 d-none" src="./images/loading.gif" alt="">
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- details area -->
+        <div id="details-area" class="container p-3 my-3">
+            <div class="row g-3 justify-content-center ">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <img class="img-fluid" src="./images/placeholder.png" alt="">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h3>Details</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- search result cards -->
+        <div id="search-results" class="container">
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+                <div class="col">
+                    <div class="card">
+                        <img src="./flag-placeholder.png" class=" card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's
+                                content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="" class=" card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's
+                                content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="" class=" card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's
+                                content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="" class=" card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's
+                                content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- show more button -->
+        <div class="container my-3 text-center">
+            <button class="btn btn-primary px-4" id="show-more-btn">Show all</button>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
