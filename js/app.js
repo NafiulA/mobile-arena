@@ -40,7 +40,6 @@ const displayData = (phones, resultsNum) => {
     }
     else {
         phones.forEach(phone => {
-            console.log(phone);
             resultText.innerHTML = `<span>${resultsNum} results found.</span>`
             const cardsCol = document.createElement("div");
             cardsCol.classList.add("col-lg-4", "col-md-6", "col-sm-12", "justify-content-center");
@@ -79,7 +78,6 @@ const getDetails = phoneID => {
 
 // displays the details
 const displayDetails = data => {
-    console.log(data);
     const detailsArea = document.getElementById("details-area");
     detailsArea.textContent = "";
     const rowDiv = document.createElement("div");
