@@ -90,11 +90,11 @@ const displayDetails = data => {
                     <h5>Details</h5>
                     <h3>${data.name}</h3>
                     <p>${data.brand}</p>
-                    <p><span class="fw-bold">Chipset:</span> ${data.mainFeatures.chipSet}</p>
-                    <p><span class="fw-bold">Display:</span> ${data.mainFeatures.displaySize}</p>
-                    <p><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
-                    <p><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
-                    <p><span class="fw-bold">Sensors:</span> ${data.mainFeatures.sensors.join(", ")}</p>
+                    <p><span class="fw-bold">Chipset:</span> ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet : "N/A"}</p>
+                    <p><span class="fw-bold">Display:</span> ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : "N/A"}</p>
+                    <p><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory ? data.mainFeatures.memory : "N/A"}</p>
+                    <p><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage ? data.mainFeatures.storage : "N/A"}</p>
+                    <p><span class="fw-bold">Sensors:</span> ${data.mainFeatures.sensors ? data.mainFeatures.sensors.join(", ") : "N/A"}</p>
                     <p><span class="fw-bold">Others:</span>
                     ${data.others ? `<br><span>WLAN: ${data.others.WLAN}</span><br>
                     <span>Bluetooth: ${data.others.Bluetooth}</span><br>
