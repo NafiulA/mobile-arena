@@ -1,10 +1,11 @@
+/* utilities */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body{
     font-family: 'Poppins', sans-serif;
-
 }
 
+/* search box and card styles */
 #input-area{
     width: 75%;
 }
@@ -12,6 +13,8 @@ body{
 .card{
     border-radius: 24px;
 }
+
+/* mobile responsive */
 
 @media only screen and (max-width:576px){
 

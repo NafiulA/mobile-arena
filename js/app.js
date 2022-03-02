@@ -1,5 +1,8 @@
-const getPhones = (length) => {
+// takes optional size of array and return that amount of products or all products from api response
 
+const getPhones = (length) => {
+    document.getElementById("search-results").classList.add("d-none");
+    document.getElementById("loading-sec").classList.remove("d-none");
     const inputField = document.getElementById("input-value");
     const inputValue = inputField.value;
     const inputValueLowerCase = inputValue.toLowerCase();
@@ -17,7 +20,7 @@ const getPhones = (length) => {
         });
 }
 
-
+// displays the products 
 const displayData = (phones, resultsNum) => {
 
     const detailsArea = document.getElementById("details-area");
@@ -33,6 +36,7 @@ const displayData = (phones, resultsNum) => {
         resultText.innerHTML = `<span>${resultsNum} results found.</span><br><span>Please try again with another keyword</span>`;
         document.getElementById("show-more-btn").classList.add("d-none");
         document.getElementById("loading-sec").classList.add("d-none");
+        document.getElementById("search-results").classList.remove("d-none");
     }
     else {
         phones.forEach(phone => {
@@ -41,7 +45,7 @@ const displayData = (phones, resultsNum) => {
             const cardsCol = document.createElement("div");
             cardsCol.classList.add("col-lg-4", "col-md-6", "col-sm-12", "justify-content-center");
             cardsCol.innerHTML = `
-            <div class="card">
+            <div class="card shadow">
             <div class= "text-center">
                         <img src="${phone.image}" class="w-75 p-2" alt="">
                         </div>
@@ -60,15 +64,20 @@ const displayData = (phones, resultsNum) => {
         else {
             document.getElementById("show-more-btn").classList.add("d-none");
         }
+        document.getElementById("loading-sec").classList.add("d-none");
+        document.getElementById("search-results").classList.remove("d-none");
     }
 }
 
+// gets specific phone details
 const getDetails = phoneID => {
+    document.getElementById("loading-sec").classList.remove("d-none");
     fetch(`https://openapi.programming-hero.com/api/phone/${phoneID}`)
         .then(res => res.json())
         .then(data => displayDetails(data.data));
 }
 
+// displays the details
 const displayDetails = data => {
     console.log(data);
     const detailsArea = document.getElementById("details-area");
@@ -99,5 +108,5 @@ const displayDetails = data => {
                 </div>
     `;
     detailsArea.appendChild(rowDiv);
-
+    document.getElementById("loading-sec").classList.add("d-none");
 }
